@@ -53,6 +53,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.0'
   gem 'simplecov'
   gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'cpf_faker'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem "capybara"
+  gem "selenium-webdriver"
 end
 
 group :development do
