@@ -51,6 +51,7 @@ describe 'visitor' do
           click_on 'Sign up'
           expect(page).not_to have_content('Olá, teste') 
           expect(page).to have_content('Primeiro Acesso') 
+          expect(page).to have_content('Somente dominios de @olafood.com podem se cadastrar') 
         end
       end
     end
@@ -83,7 +84,7 @@ describe 'visitor' do
         it 'has password blank' do
           visit '/'
           click_on 'Login'
-          fill_in 'Email', with: 'teste@ola_food.com'
+          fill_in 'Email', with: 'teste@olafood.com'
           # fill_in 'Password', with: 'abc123' 
           click_on 'Log in'
           expect(page).not_to have_content('Sair') 
