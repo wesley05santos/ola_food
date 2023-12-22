@@ -1,0 +1,23 @@
+<%= render 'shared/messages' %>
+<%= render 'shared/errors', object: @product %>
+
+<%= form_with model: @product, data: { turbo: false } do |form| %>
+  <p>
+    <%= form.label :code, 'Código:' %>
+    <%= form.text_field :code %>
+  </p>
+
+  <p>
+    <%= form.label :name, 'Nome:' %>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :price, 'Preço:' %>
+    <%= form.text_field :price %>
+  </p>
+
+  <p>
+    <%= form.submit 'Salvar' %>  
+  </p>    
+<% end %>

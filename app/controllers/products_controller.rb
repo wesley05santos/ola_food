@@ -12,15 +12,19 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(code: params[:product][:code],
-                name: params[:product][:name],
-                price: params[:product][:price]
-    )
+    @product = Product.new(product_params_fixed)
+    return redirect_to product_path(@product.id) if @product.save
 
-    if @product.save
-      return redirect_to product_path(@product.id)
-
-    end
     render :new
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:code, :name, :price)
+  end
+
+  def product_params_fixed
+    product_params.tap{ |hash| hash[:price] = hash[:price].gsub(',','.') if hash[:price] }
   end
 end
