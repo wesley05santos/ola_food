@@ -1,5 +1,13 @@
-  <p>
-    <%= @product.code %> |
-    <%= @product.name %> |
-    <%= @product.price %>
-  </p>
+<p>
+  Código: <%= @product.code %>
+</p>
+<p>
+  Descrição: <%= @product.name %>
+</p>
+<p>
+  Preço: <%= @product.price %>
+</p>
+<p>
+  <%= link_to  "Editar", edit_product_path %>
+</p>  
+
