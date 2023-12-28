@@ -29,6 +29,12 @@ class ProductsController < ApplicationController
     render :edit
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    flash[:notice] = 'Produto Deletado com Sucesso!' if @product.destroy
+    redirect_to products_path
+  end
+
   private
 
   def product_params

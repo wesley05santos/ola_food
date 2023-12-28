@@ -8,6 +8,9 @@
   Preço: <%= @product.price %>
 </p>
 <p>
-  <%= link_to  "Editar", edit_product_path %>
+  <%= button_to 'Editar', edit_product_path, method: :get %>
 </p>  
+<p class=>
+  <%= button_to 'Apagar', product_path(@product), method: :delete, data: { turbo_confirm: "Deseja realmente apagar o produto #{@product.name}?" } %>
+</p> 
 
