@@ -1,0 +1,16 @@
+<p>
+  Código: <%= @product.code %>
+</p>
+<p>
+  Descrição: <%= @product.name %>
+</p>
+<p>
+  Preço: <%= @product.price %>
+</p>
+<p>
+  <%= button_to 'Editar', edit_product_path, method: :get %>
+</p>  
+<p class=>
+  <%= button_to 'Apagar', product_path(@product), method: :delete, data: { turbo_confirm: "Deseja realmente apagar o produto #{@product.name}?" } %>
+</p> 
+

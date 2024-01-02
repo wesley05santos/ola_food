@@ -14,11 +14,18 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            Olá, <%= current_user.email.split('@').first %>
+            <%= link_to  "Produtos", products_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item">
-            <%= link_to  "Sair", destroy_user_session_path , class: 'nav-link', data: { turbo_method: :delete } %>
-          </li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Olá, <%= current_user.email.split('@').first %>
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item">
+                <%= link_to  "Sair", destroy_user_session_path , class: 'nav-link', data: { turbo_method: :delete } %>
+              </li>
+            </ul>
+          </div>
         <% else %>
           <li class="nav-item">
             <%= link_to  "Login", new_user_session_path , class: 'nav-link' %>
