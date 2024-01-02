@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params_fixed)
-    return redirect_to product_path(@product.id) if @product.save
+    return redirect_to @product if @product.save
 
     render :new
   end
@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    return redirect_to product_path(@product.id) if @product.update(product_params_fixed)
+    return redirect_to @product if @product.update(product_params_fixed)
 
     render :edit
   end
