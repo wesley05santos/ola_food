@@ -19,7 +19,7 @@
 
   <p>
     <%= form.label :number_of_address, 'Número:' %>
-    <%= form.number_field :number_of_address %>
+    <%= form.number_field :number_of_address, min: 0 %>
   </p>
 
   <p>
