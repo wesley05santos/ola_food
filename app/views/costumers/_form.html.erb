@@ -1,0 +1,33 @@
+<%= render 'shared/messages' %>
+<%= render 'shared/errors', object: @costumer %>
+
+<%= form_with model: @costumer, data: { turbo: false } do |form| %>
+  <p>
+    <%= form.label :phone_number, 'Telefone:' %>
+    <%= form.text_field :phone_number %>
+  </p>
+
+  <p>
+    <%= form.label :name, 'Nome:' %>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :address, 'Endereço:' %>
+    <%= form.text_field :address %>
+  </p>
+
+  <p>
+    <%= form.label :number_of_address, 'Número:' %>
+    <%= form.number_field :number_of_address %>
+  </p>
+
+  <p>
+    <%= form.label :neighborhood, 'Bairro:' %>
+    <%= form.text_field :neighborhood %>
+  </p>
+
+  <p>
+    <%= form.submit 'Salvar' %>  
+  </p>    
+<% end %>

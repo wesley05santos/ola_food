@@ -1,0 +1,13 @@
+<p>
+  Código: <%= @costumer.phone_number %>
+</p>
+<p>
+  Descrição: <%= @costumer.name %>
+</p>
+<p>
+  <%= button_to 'Editar', edit_costumer_path, method: :get %>
+</p>  
+<p class=>
+  <%= button_to 'Apagar', costumer_path(@costumer), method: :delete, data: { turbo_confirm: "Deseja realmente apagar o Cliente #{@costumer.name}?" } %>
+</p> 
+
