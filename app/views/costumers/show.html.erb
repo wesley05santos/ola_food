@@ -1,8 +1,14 @@
 <p>
-  Código: <%= @costumer.phone_number %>
+  Telefone: <%= @costumer.phone_number %>
 </p>
 <p>
-  Descrição: <%= @costumer.name %>
+  Nome: <%= @costumer.name %>
+</p>
+<p>
+  Endereço: <%= @costumer.address %> N° <%= @costumer.number_of_address %>
+</p>
+<p>
+  Bairro: <%= @costumer.neighborhood %>
 </p>
 <p>
   <%= button_to 'Editar', edit_costumer_path, method: :get %>
