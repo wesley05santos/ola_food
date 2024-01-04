@@ -7,10 +7,16 @@
 <p>
   Preço: <%= @product.price %>
 </p>
-<p>
-  <%= button_to 'Editar', edit_product_path, method: :get %>
-</p>  
-<p class=>
-  <%= button_to 'Apagar', product_path(@product), method: :delete, data: { turbo_confirm: "Deseja realmente apagar o produto #{@product.name}?" } %>
-</p> 
+<div class="row">
+  <div class="col-1">
+    <p>
+      <%= button_to 'Editar', edit_product_path, class: "btn btn-primary", method: :get %>
+    </p>
+  </div>
+  <div class="col-1">
+    <p>
+      <%= button_to 'Apagar', product_path(@product), class: "btn btn-danger", method: :delete, data: { turbo_confirm: "Deseja realmente apagar o produto #{@product.name}?" } %>
+    </p>
+  </div>
+</div>
 

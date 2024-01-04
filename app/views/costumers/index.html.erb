@@ -1,0 +1,9 @@
+<%=link_to 'Novo Cliente', new_costumer_path %>
+
+<% @costumers.each do |costumer| %>
+  <p>
+    <%= costumer.phone_number %> |
+    <%= costumer.name %> =>
+    <%= link_to  "Detalhes", costumer %>
+  </p>
+<% end %>
