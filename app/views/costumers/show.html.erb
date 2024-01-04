@@ -10,10 +10,16 @@
 <p>
   Bairro: <%= @costumer.neighborhood %>
 </p>
-<p>
-  <%= button_to 'Editar', edit_costumer_path, method: :get %>
-</p>  
-<p class=>
-  <%= button_to 'Apagar', costumer_path(@costumer), method: :delete, data: { turbo_confirm: "Deseja realmente apagar o Cliente #{@costumer.name}?" } %>
-</p> 
+<div class="row">
+  <div class="col-1">
+    <p>
+      <%= button_to 'Editar',  edit_costumer_path, class: "btn btn-primary", method: :get %>
+    </p>
+  </div>
+  <div class="col-1">
+    <p class=>
+      <%= button_to 'Apagar', costumer_path(@costumer), class: "btn btn-danger", method: :delete, data: { turbo_confirm: "Deseja realmente apagar o Cliente #{@costumer.name}?" } %>
+    </p>
+  </div>
+</div>
 
