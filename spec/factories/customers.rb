@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :costumer do
+  factory :customer do
     name { 'Joãozinho da Silva' }
     phone_number { '(16) 98203-9595' }
     address { 'Rua Teste de Sempre' }
