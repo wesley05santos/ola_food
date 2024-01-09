@@ -6,19 +6,12 @@ describe 'manage customer' do
     context 'succesfully' do 
       it 'when all atributes set' do
         visit '/'
-        sleep 3
         click_on 'Login'
-        sleep 3
         fill_in 'Email', with: 'teste@olafood.com'
-        sleep 3
         fill_in 'Password', with: 'abc123'
-        sleep 3
         click_button 'Log in'
-        sleep 3
         click_on 'Clientes'
-        sleep 3
         click_on 'Novo Cliente'
-        sleep 3
         fill_in 'Telefone:', with: '(16) 98203-9595'
         fill_in 'Nome:', with: 'Wesley M. Santos'
         fill_in 'Endereço:', with: 'Rua 2'

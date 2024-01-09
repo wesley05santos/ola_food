@@ -1,0 +1,3 @@
+<p>Cliente: <%= @order.customer.name %></p>
+<p><%= @order.products.first.name %> | <%= @order.products.first.price.to_f %></p>
+<p><%= @order.products.last.name %> | <%= @order.products.last.price.to_f %></p>
