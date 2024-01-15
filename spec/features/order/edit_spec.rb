@@ -4,12 +4,11 @@ describe 'edit order' do
   before(:each) { create(:user, :confirmed) }
   before(:each) { create(:product) }
   # let!(:product) { create(:product ) }
-  # before(:each) { create(:customer) }
-  before(:each) { create(:order) }
-  before(:each) { create(:item) }
+  before(:each) { create(:customer) }
+  # before(:each) { create(:order) }
   context 'succesfully' do
     it 'when set all atributtes' do
-      binding.break
+      # binding.break
       visit '/'
       click_on 'Login'
       fill_in 'Email', with: 'teste@olafood.com'

@@ -2,7 +2,7 @@
 <%= render 'shared/errors', object: @order %>
 
 <%= form_with model: @order, data: { turbo: false } do |form| %>
-  <%= form.label :customer_id, 'Cliente'  %>
+  <strong><%= form.label :customer_id, 'Cliente'  %></strong>
   <%= form.text_field :customer_id, list: 'data-list' %>
   <datalist id="data-list">
     <% @customers.each do |customer| %>

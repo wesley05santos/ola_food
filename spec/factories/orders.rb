@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :order do
-    customer {  }
+    association :customer
   end
 end
-
