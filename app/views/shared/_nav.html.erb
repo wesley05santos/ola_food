@@ -21,6 +21,9 @@
           <li class="nav-item">
             <%= link_to  "Novo Pedido", new_order_path, class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to  "Pedidos", orders_path, class: 'nav-link' %>
+          </li>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Olá, <%= current_user.email.split('@').first %>

@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
-  def index; end
+  def index
+    @orders = Order.all.order(id: :desc)
+  end
 
   def new
     @customers = Customer.all.order(name: :asc)
@@ -21,6 +23,21 @@ class OrdersController < ApplicationController
     @customers = Customer.all.order(name: :asc)
     @products = Product.all.order(name: :asc)
     render :new    
+  end
+
+  def edit
+    @order = Order.find(params[:id])
+    @customers = Customer.all.order(name: :asc)
+    @products = Product.all.order(name: :asc)
+  end
+
+  def update
+    @order = Order.find(params[:id])
+    @customers = Customer.all.order(name: :asc)
+    @products = Product.all.order(name: :asc)
+    return redirect_to orders_path if @order.update(order_params_with_customer_id)
+
+    render :edit
   end
 end
 

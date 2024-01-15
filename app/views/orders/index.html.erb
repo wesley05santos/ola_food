@@ -1,0 +1,7 @@
+<% @orders.each do |order| %>
+  <p>
+    <%= order.id %> |
+    <%= order.customer.name %> |
+    <%= link_to  "Detalhes", order %>
+  </p>
+<% end %>

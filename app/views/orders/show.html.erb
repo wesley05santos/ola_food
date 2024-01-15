@@ -1,3 +1,6 @@
 <p>Cliente: <%= @order.customer.name %></p>
-<p><%= @order.products.first.name %> | <%= @order.products.first.price.to_f %></p>
-<p><%= @order.products.last.name %> | <%= @order.products.last.price.to_f %></p>
+<% @order.products.each do |product| %>
+  <p><%= product.name %> | <%= product.price.to_f %></p> 
+<% end %>
+<p><%= link_to  "Editar", edit_order_path, class: "btn btn-warning" %></p>
+
