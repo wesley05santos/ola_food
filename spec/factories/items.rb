@@ -1,8 +1,11 @@
 FactoryBot.define do
   factory :item do
-    product    
-    order { association :product, item: instance, order: order  }
     price { "9.99" }
     quantity { "5" }
+  
+    trait :stand_alone do
+      product
+      order { FactoryBot.create(:order) }
+    end
   end
 end

@@ -35,8 +35,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @customers = Customer.all.order(name: :asc)
     @products = Product.all.order(name: :asc)
-    return redirect_to orders_path if @order.update(order_params_with_customer_id)
+    if @order.update(order_params_with_customer_id)
+      flash[:notice] = 'Pedido editado com Sucesso!'      
+      return redirect_to @order
 
+    end
     render :edit
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'manage order' do
+describe 'create order' do
   before(:each) { create(:user, :confirmed ) }
   # before(:each) { create(:product ) }
   let!(:product) { create(:product ) }
