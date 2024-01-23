@@ -42,6 +42,12 @@ class OrdersController < ApplicationController
     end
     render :edit
   end
+
+  def destroy
+    @order = Order.find(params[:id])
+    flash[:notice] = 'Pedido deletado com Sucesso!' if @order.destroy
+    redirect_to orders_path
+  end
 end
 
 private
