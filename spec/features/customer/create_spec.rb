@@ -1,9 +1,8 @@
 require 'rails_helper'
 
-describe 'manage costumer' do
-  context 'edit' do 
+describe 'manage customer' do
+  context 'create' do 
     before(:each){ create(:user, :confirmed) }
-    before(:each){ create(:costumer) }
     context 'succesfully' do 
       it 'when all atributes set' do
         visit '/'
@@ -12,18 +11,16 @@ describe 'manage costumer' do
         fill_in 'Password', with: 'abc123'
         click_button 'Log in'
         click_on 'Clientes'
-        click_on 'Detalhes'
-        click_on 'Editar'
-        fill_in 'Telefone:', with: '(16) 98203-9090'
-        fill_in 'Nome:', with: 'Wesley M. Santos Silva'
-        fill_in 'Endereço:', with: 'Rua das Flores'
-        fill_in 'Número:', with: '555'
-        fill_in 'Bairro:', with: 'Bairro Norte'
+        click_on 'Novo Cliente'
+        fill_in 'Telefone:', with: '(16) 98203-9595'
+        fill_in 'Nome:', with: 'Wesley M. Santos'
+        fill_in 'Endereço:', with: 'Rua 2'
+        fill_in 'Número:', with: '86'
+        fill_in 'Bairro:', with: 'Jardim Testando'
         click_on 'Salvar'
               
-        expect(page).to have_content('Silva')
-        expect(page).to have_content('Flores')
-        expect(page).to have_content('Norte')
+        expect(page).to have_content('Wesley')
+        expect(page).to have_content('98203-9595')
         expect(page).not_to have_content('Novo Cliente')
         expect(page).not_to have_content('Salvar')
       end
@@ -37,15 +34,15 @@ describe 'manage costumer' do
         fill_in 'Password', with: 'abc123'
         click_button 'Log in'
         click_on 'Clientes'
-        click_on 'Detalhes'
-        click_on 'Editar'
-        fill_in 'Telefone:', with: ''
-        fill_in 'Nome:', with: 'Wesley M. Santos Silva'
-        fill_in 'Endereço:', with: 'Rua das Flores'
-        fill_in 'Número:', with: '555'
-        fill_in 'Bairro:', with: 'Bairro Norte'
+        click_on 'Novo Cliente'
+        # fill_in 'Telefone:', with: '(16) 98203-9595'
+        fill_in 'Nome:', with: 'Wesley M. Santos'
+        fill_in 'Endereço:', with: 'Rua 2'
+        fill_in 'Número:', with: '86'
+        fill_in 'Bairro:', with: 'Jardim Testando'
         click_on 'Salvar'
         
+        expect(page).not_to have_content('Novo Cliente')
         expect(page).to have_content("can't be blank")
       end
 
@@ -56,15 +53,15 @@ describe 'manage costumer' do
         fill_in 'Password', with: 'abc123'
         click_button 'Log in'
         click_on 'Clientes'
-        click_on 'Detalhes'
-        click_on 'Editar'
-        fill_in 'Telefone:', with: '(16) 98203-9090'
-        fill_in 'Nome:', with: ''
-        fill_in 'Endereço:', with: 'Rua das Flores'
-        fill_in 'Número:', with: '555'
-        fill_in 'Bairro:', with: 'Bairro Norte'
+        click_on 'Novo Cliente'
+        fill_in 'Telefone:', with: '(16) 98203-9595'
+        # fill_in 'Nome:', with: 'Wesley M. Santos'
+        fill_in 'Endereço:', with: 'Rua 2'
+        fill_in 'Número:', with: '86'
+        fill_in 'Bairro:', with: 'Jardim Testando'
         click_on 'Salvar'
         
+        expect(page).not_to have_content('Novo Cliente')
         expect(page).to have_content("can't be blank")
       end
 
@@ -75,15 +72,15 @@ describe 'manage costumer' do
         fill_in 'Password', with: 'abc123'
         click_button 'Log in'
         click_on 'Clientes'
-        click_on 'Detalhes'
-        click_on 'Editar'
-        fill_in 'Telefone:', with: '(16) 98203-9090'
-        fill_in 'Nome:', with: 'Wesley M. Santos Silva'
-        fill_in 'Endereço:', with: ''
-        fill_in 'Número:', with: '555'
-        fill_in 'Bairro:', with: 'Bairro Norte'
+        click_on 'Novo Cliente'
+        fill_in 'Telefone:', with: '(16) 98203-9595'
+        fill_in 'Nome:', with: 'Wesley M. Santos'
+        # fill_in 'Endereço:', with: 'Rua 2'
+        # fill_in 'Número:', with: '86'
+        # fill_in 'Bairro:', with: 'Jardim Testando'
         click_on 'Salvar'
         
+        expect(page).not_to have_content('Novo Cliente')
         expect(page).to have_content("can't be blank")
       end
     end

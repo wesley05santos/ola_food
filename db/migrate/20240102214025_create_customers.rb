@@ -1,6 +1,6 @@
-class CreateCostumers < ActiveRecord::Migration[7.1]
+class CreateCustomers < ActiveRecord::Migration[7.1]
   def change
-    create_table :costumers do |t|
+    create_table :customers do |t|
       t.string :name
       t.string :phone_number
       t.string :address

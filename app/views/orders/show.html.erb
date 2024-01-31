@@ -1,0 +1,19 @@
+<strong>
+  <p>Cliente: <%= @order.customer.name %></p>
+</strong>
+<% @order.products.each do |product| %>
+  <p><%= product.name %> | <%= product.price.to_f %></p> 
+<% end %>
+<div class="row">
+  <div class="col-1">
+    <p>
+      <%= button_to 'Editar', edit_order_path, class: "btn btn-primary", method: :get %>
+    </p>
+  </div>
+  <div class="col-1">
+    <p>
+      <%= button_to 'Apagar', order_path(@order), class: "btn btn-danger", method: :delete, data: { turbo_confirm: "Deseja realmente apagar o pedido #{@order.id}?" } %>
+    </p>
+  </div>
+</div>
+

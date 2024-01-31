@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_02_214025) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_04_215403) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "costumers", force: :cascade do |t|
+  create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "phone_number"
     t.string "address"
@@ -22,6 +22,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_02_214025) do
     t.string "neighborhood"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "product_id", null: false
+    t.decimal "price", default: "0.0", null: false
+    t.decimal "quantity", default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_items_on_order_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -48,4 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_02_214025) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "orders"
+  add_foreign_key "items", "products"
+  add_foreign_key "orders", "customers"
 end

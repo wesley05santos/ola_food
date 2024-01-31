@@ -1,0 +1,25 @@
+<p>
+  Telefone: <%= @customer.phone_number %>
+</p>
+<p>
+  Nome: <%= @customer.name %>
+</p>
+<p>
+  Endereço: <%= @customer.address %> N° <%= @customer.number_of_address %>
+</p>
+<p>
+  Bairro: <%= @customer.neighborhood %>
+</p>
+<div class="row">
+  <div class="col-1">
+    <p>
+      <%= button_to 'Editar',  edit_customer_path, class: "btn btn-primary", method: :get %>
+    </p>
+  </div>
+  <div class="col-1">
+    <p class=>
+      <%= button_to 'Apagar', customer_path(@customer), class: "btn btn-danger", method: :delete, data: { turbo_confirm: "Deseja realmente apagar o Cliente #{@customer.name}?" } %>
+    </p>
+  </div>
+</div>
+

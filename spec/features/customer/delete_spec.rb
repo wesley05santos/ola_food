@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'manage cliente' do
+describe 'manage customer' do
   before(:each){ create(:user, :confirmed) }
-  before(:each){ create(:costumer) }
+  before(:each){ create(:customer) }
   context 'delete' do
     it 'succesfully' do
       visit '/'
