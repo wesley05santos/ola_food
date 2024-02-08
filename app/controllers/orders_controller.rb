@@ -14,15 +14,15 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params_with_customer_id)
-    if @order.save
-      flash[:notice] = 'Pedido confirmado com Sucesso!' 
+    @order = GenerateOrderService.call(**order_params_with_customer_id)
+    if @order.persisted?
+      flash[:notice] = 'Pedido confirmado com Sucesso!'
       return redirect_to @order
 
     end
     @customers = Customer.all.order(name: :asc)
     @products = Product.all.order(name: :asc)
-    render :new    
+    render :new
   end
 
   def edit
@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
     @customers = Customer.all.order(name: :asc)
     @products = Product.all.order(name: :asc)
     if @order.update(order_params_with_customer_id)
-      flash[:notice] = 'Pedido editado com Sucesso!'      
+      flash[:notice] = 'Pedido editado com Sucesso!'
       return redirect_to @order
 
     end
