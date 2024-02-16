@@ -3,25 +3,29 @@
 
 <%= form_with model: @order, data: { turbo: false } do |form| %>
   <strong><%= form.label :customer_id, 'Cliente'  %></strong>
-  <%= form.text_field :customer_id, list: 'data-list' %>
+  <% if (%w[edit update].include? action_name) %>
+    <%= form.text_field :customer_id, list: 'data-list', value: @order.customer&.name %>
+  <% else %>
+    <%= form.text_field :customer_id, list: 'data-list' %>
+  <% end %>
   <datalist id="data-list">
     <% @customers.each do |customer| %>
-      <option key="<%= customer.id %>" value="<%= customer.name %>"><%= customer.name %></option>    
+      <option key="<%= customer.id %>" value="<%= customer.name %>"><%= customer.name %></option>
     <% end %>
   </datalist>
 
   <hr></hr>
-      
+
   <table>
     <th>
       <tr>
         <th>Produtos</th>
       </tr>
-    </th>    
+    </th>
     <tbody>
       <% @products.each do |product| %>
         <tr>
-            <td><%= form.check_box(:product_ids, { multiple: true }, product.id, nil) %></td>   
+            <td><%= form.check_box(:product_ids, { multiple: true }, product.id, nil) %></td>
             <td><%= product.name%></td>
             <td><%= " | #{product.price}" %></td>
         </tr>

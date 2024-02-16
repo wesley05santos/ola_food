@@ -32,10 +32,11 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order = Order.find(params[:id])
     @customers = Customer.all.order(name: :asc)
     @products = Product.all.order(name: :asc)
-    if @order.update(order_params_with_customer_id)
+    # @order = Order.find(params[:id])
+    @order = UpdateOrderService.call(params: params, order_params_with_customer_id: order_params_with_customer_id)
+    if @order.errors.none?
       flash[:notice] = 'Pedido editado com Sucesso!'
       return redirect_to @order
 
