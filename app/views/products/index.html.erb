@@ -1,10 +1,20 @@
-<%=link_to 'Novo Produto', new_product_path %>
+<%=link_to 'Novo Produto', new_product_path, class: "btn btn-secondary", method: :get %>
 
-<% @products.each do |product| %>
-  <p>
-    <%= product.code %> |
-    <%= product.name %> |
-    <%= product.price %> =>
-    <%= link_to  "Detalhes", product %>
-  </p>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <th>ID</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+    <th>Ações</th>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.code %></td>
+        <td><%= product.name %></td>
+        <td><%= "R$ #{product.price}" %></td>
+        <td><%= link_to  "Detalhes", product, class: "btn btn-secondary", method: :get %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

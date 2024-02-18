@@ -1,7 +1,18 @@
-<% @orders.each do |order| %>
-  <p>
-    <%= order.id %> |
-    <%= order.customer.name %> |
-    <%= link_to  "Detalhes", order %>
-  </p>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Cliente</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %> </td>
+        <td><%= order.customer.name %> </td>
+        <td><%= link_to  "Detalhes", order, class: "btn btn-secondary", method: :get %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

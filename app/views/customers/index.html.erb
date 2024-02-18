@@ -1,9 +1,23 @@
-<%=link_to 'Novo Cliente', new_customer_path %>
+<%=link_to 'Novo Cliente', new_customer_path, class: "btn btn-secondary", method: :get %>
 
-<% @customers.each do |customer| %>
-  <p>
-    <%= customer.phone_number %> |
-    <%= customer.name %> =>
-    <%= link_to  "Detalhes", customer %>
-  </p>
-<% end %>
+<table class="table table-striped"
+>
+  <thead>
+    <th>ID</th>
+    <th>Telefone</th>
+    <th>Cliente</th>
+    <th>Ações</th>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.phone_number %></td>
+        <td><%= customer.name %></td>
+        <td><%= link_to  "Detalhes", customer, class: "btn btn-secondary", method: :get %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
