@@ -1,4 +1,4 @@
-class GenerateOrUpdateOrderService
+class Orders::GenerateOrUpdateOrderService
   def initialize(**args)
     @params = args[:params]
     @order_params_with_customer_id = args
@@ -7,7 +7,7 @@ class GenerateOrUpdateOrderService
   end
 
   def self.call(**args)
-    GenerateOrUpdateOrderService.new(**args).call
+    new(**args).call
   end
 
   def call

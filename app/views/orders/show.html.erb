@@ -2,9 +2,26 @@
   <p>ID: <%= @order.id %></p>
   <p>Cliente: <%= @order.customer.name %></p>
 </strong>
-<% @order.products.each do |product| %>
-  <p><%= product.name %> | <%= product.price.to_f %></p>
-<% end %>
+
+<hr>
+
+<table class="table table-striped">
+  <thead>
+    <th>Produto</th>
+    <th>Preço</th>
+  </thead>
+  <tbody>
+    <% @order.products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= "R$ #{product.price.to_f}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+
 <div class="row">
   <div class="col-1">
     <p>

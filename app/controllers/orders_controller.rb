@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = GenerateOrUpdateOrderService.call(**order_params_with_customer_id)
+    @order = Orders::OrderHandlerService.call(service: Orders::GenerateOrderServiceOld, **order_params_with_customer_id)
     if @order.persisted?
       flash[:notice] = 'Pedido confirmado com Sucesso!'
       return redirect_to @order
@@ -34,9 +34,7 @@ class OrdersController < ApplicationController
   def update
     @customers = Customer.all.order(name: :asc)
     @products = Product.all.order(name: :asc)
-    # @order = Order.find(params[:id])
-    # @order = GenerateOrUpdateOrderService.call(params: params, order_params_with_customer_id: order_params_with_customer_id)
-    @order = GenerateOrUpdateOrderService.call(params: params, **order_params_with_customer_id)
+    @order = Orders::OrderHandlerService.call(service: Orders::UpdateOrderServiceOld, params: , order_params_with_customer_id: )
     if @order.errors.none?
       flash[:notice] = 'Pedido editado com Sucesso!'
       return redirect_to @order
