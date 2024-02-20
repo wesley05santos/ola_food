@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
 
-Things you may want to cover:
+Software Simulando uma plataforma para pedido de comida.
+Utilizado para estudos com Ruby on Rails, Rspec e utilizando
+Bootstrap para estilização.
 
-* Ruby version
+A idéia é que se tenha um cadastro de usuário
+com login e senha, e somente usuários autorizados
+possam acessar os sistema para controlar:
 
-* System dependencies
+  Cadastros de Produtos
+  Cadastros de Clientes
+  Lançamentos de Pedidos com formulário para busca de cliente
+  e seleção de produtos via checkbox.
+  E com possibilidade de edição e exclusão de registros.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
