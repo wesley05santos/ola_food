@@ -1,6 +1,6 @@
 <%=link_to 'Novo Produto', new_product_path, class: "btn btn-secondary", method: :get %>
 
-<table class="table table-striped">
+<table style="display: flex; flex-direction: column; width: 100%">
   <thead>
     <th>ID</th>
     <th>Descrição</th>
@@ -8,8 +8,8 @@
     <th>Ações</th>
   </thead>
   <tbody>
-    <% @products.each do |product| %>
-      <tr>
+    <% @products.map.with_index do |product, index| %>
+      <tr style="background-color: <%= current_user.configuration.colors[index % current_user.configuration.colors.size] %>">
         <td><%= product.code %></td>
         <td><%= product.name %></td>
         <td><%= "R$ #{product.price}" %></td>
