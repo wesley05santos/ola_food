@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :orders
   resources :configurations
+  resources :payments, only: %i[new create]
 
   # Defines the root path route ("/")
   # root "posts#index"
