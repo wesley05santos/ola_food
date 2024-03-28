@@ -30,7 +30,12 @@
   </div>
   <div class="col-1">
     <p>
-      <%= button_to 'Apagar', order_path(@order), class: "btn btn-danger", method: :delete, data: { turbo_confirm: "Deseja realmente apagar o pedido #{@order.id}?" } %>
+      <%= button_to 'Deletar', order_path(@order), class: "btn btn-danger", method: :delete, data: { turbo_confirm: "Deseja realmente apagar o pedido #{@order.id}?" } %>
+    </p>
+  </div>
+  <div class="col-1">
+    <p>
+      <%= link_to 'Fazer Pagamento', new_payment_path(order_id: @order.id), class: "btn btn-success" %>
     </p>
   </div>
 </div>

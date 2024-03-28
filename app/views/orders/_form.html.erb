@@ -30,11 +30,14 @@
           <td><%= "R$ #{product.price}" %></td>
         </tr>
       <% end %>
+      <tr>
+        Teste <%= @order.total %>
+      </tr>
     </tbody>
   </table>
 
   <hr></hr>
-  
+
   <%= form.submit 'Fechar Pedido', class: "btn btn-success" %>
   <%= link_to 'Cancelar Pedido', root_path, class: "btn btn-danger" %>
 <% end %>
