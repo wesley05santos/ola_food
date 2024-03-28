@@ -1,0 +1,41 @@
+<%= render 'shared/messages' %>
+<%= render 'shared/errors', object: @configuration %>
+
+<%= form_with id: :configuration_form, model: @configuration, data: { turbo: false } do |form| %>
+
+  <p>
+    <%= form.submit 'Salvar', class: "btn btn-success" %>
+  </p>
+
+  <div id="configuration-colors" >
+    <% @configuration.colors.each do |color| %>
+      <%= form.color_field nil, id: nil, name: 'configuration[colors][]', value: color %>
+    <% end %>
+  </div>
+
+  <%= link_to  "+", '#', id: 'plus_color_btn' %>
+  <%= link_to  "-", '#', id: 'minus_color_btn' %>
+<% end %>
+
+<script>
+  let plus_color_btn = document.querySelector('#plus_color_btn')
+  let configuration_colors = document.querySelector('#configuration-colors')
+
+  plus_color_btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    let input = document.createElement('input')
+    input.name = "configuration[colors][]"
+    input.type = "color"
+    configuration_colors.appendChild(input)
+  })
+
+  let minus_color_btn = document.querySelector('#minus_color_btn')
+  
+  minus_color_btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    let input = document.getElementById('configuration-colors')
+    let lastInput = input.children[input.children.length - 1]
+    input.removeChild(lastInput)
+  })
+</script>
+
